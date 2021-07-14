@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MVI</string>
+    <string name="register_btn">Register</string>
+    <string name="retype_password_field">Retype Password</string>
+    <string name="password_btn">Password</string>
+    <string name="username_btn">Username</string>
+    <string name="username_field">Username</string>
+    <string name="password_field">Password</string>
+    <string name="login_btn">Login</string>
+    <string name="sign_up_btn">Sign up</string>
+    <string name="sign_in_btn">Sign in</string>
+    <string name="back_button">back button</string>
+</resources>
