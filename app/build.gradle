@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -73,6 +74,10 @@ dependencies {
 
     //data store
     implementation "androidx.datastore:datastore-preferences:1.0.0-rc01"
+
+    //hilt
+    implementation 'com.google.dagger:hilt-android:2.37'
+    kapt 'com.google.dagger:hilt-android-compiler:2.37'
 
     //resizable screen sizes
     implementation 'com.intuit.sdp:sdp-android:1.0.6'

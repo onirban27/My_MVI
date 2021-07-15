@@ -1,15 +1,17 @@
 package com.imaginers.mymvi.data.repository
 
+import com.imaginers.mymvi.data.db.AppDatabase
 import com.imaginers.mymvi.data.db.entity.User
 import com.imaginers.mymvi.data.db.UserDao
+import dagger.Provides
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class UserRepository(
-    private val userDao: UserDao
-){
-    suspend fun create(user: User) = userDao.register(user)
-    fun loginUser(email: String, password: String)= userDao.loginUser(email, password)
 
-//    suspend fun delete(user: User) = userDao.delete(user)
-//    fun getLoggedInUser() = userDao.getLoggedInUser()
+class UserRepository @Inject constructor(private val database: AppDatabase) {
+
+    suspend fun create(user: User) = database.userDao().register(user)
+
+    fun loginUser(email: String, password: String) = database.userDao().loginUser(email, password)
 
 }

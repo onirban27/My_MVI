@@ -7,17 +7,19 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
-import com.imaginers.mymvi.App.Companion.appContext
 import com.imaginers.mymvi.databinding.ActivitySignupBinding
 import com.imaginers.mymvi.states.UiState
 import com.imaginers.mymvi.util.hideKeyboard
 import com.imaginers.mymvi.util.snack
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SignupActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignupBinding
-    private val viewModel: SignupViewModel by viewModels()
+    private val viewModel by viewModels<SignupViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,6 @@ class SignupActivity : AppCompatActivity() {
         binding.btnRegister.setOnClickListener{
             hideKeyboard()
             viewModel.register(
-                appContext.repository,
                 binding.etUsername.text.toString(),
                 binding.etPassword.text.toString(),
                 binding.etPasswordRetype.text.toString()
